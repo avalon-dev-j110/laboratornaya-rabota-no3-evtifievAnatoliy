@@ -17,4 +17,8 @@ public interface Sort {
      * @param array массив, подлежащий сортировке
      */
     void sort(int[] array);
+    
+    default long timeSpent(){
+        return 0;
+    }
 }
