@@ -17,9 +17,30 @@ public class SelectionSort implements Sort {
     /**
      * {@inheritDoc}
      */
+    private long timeStart = 0;
+    private long timeEnd = 0;
+
+    public SelectionSort() {
+    }
+    
+    
     public void sort(int[] array) {
         /*
          * TODO(Студент): Реализовать метод sort класса SelectionSort
          */
+        timeStart = System.currentTimeMillis();
+        for (int i=0; i<array.length; i++){
+            int minIndex = i;
+            for(int j=i; j<array.length; j++)
+                if(array[minIndex]>array[j])
+                    minIndex = j;
+            int temp = array[i];
+            array[i] = array[minIndex];
+            array[minIndex] = temp;
+        }
+        timeEnd = System.currentTimeMillis();
+    }
+     public long timeSpent() {
+        return timeEnd - timeStart;
     }
 }

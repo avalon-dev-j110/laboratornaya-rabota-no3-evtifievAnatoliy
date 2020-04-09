@@ -16,9 +16,29 @@ public class BubbleSort implements Sort {
     /**
      * {@inheritDoc}
      */
+    private long timeStart = 0;
+    private long timeEnd = 0;
+    
+    public BubbleSort() {
+        
+    }
+
     public void sort(int[] array) {
         /*
-         * TODO(Студент): Реализовать метод sort класса BubbleSort
-         */
+        * TODO(Студент): Реализовать метод sort класса BubbleSort
+        */
+        timeStart = System.currentTimeMillis();
+        int temp;
+        for (int i=0; i<array.length-1; i++)
+            for(int j=0; j<array.length-1; j++)
+                if(array[j]>array[j+1]){
+                    temp = array[j+1];
+                    array[j+1] = array[j];
+                    array[j] = temp;
+                }
+        timeEnd = System.currentTimeMillis();
+    }
+    public long timeSpent() {
+        return timeEnd - timeStart;
     }
 }

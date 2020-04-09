@@ -20,9 +20,48 @@ public class ShellSort implements Sort {
     /**
      * {@inheritDoc}
      */
+    private long timeStart = 0;
+    private long timeEnd = 0;
+
+    public ShellSort() {
+    }
+    
+    
+    
     public void sort(int[] array) {
         /*
          * TODO(Студент): Реализовать метод sort класса ShellSort
          */
+        timeStart = System.currentTimeMillis();
+        
+        int halfIndex = array.length / 2;
+        while (halfIndex >= 1) {
+            for (int i = 0; i < array.length; i++) 
+                for (int j = i - halfIndex; j >= 0; j -= halfIndex) 
+                    if (array[j] > array[j + halfIndex]) {
+                        int temp = array[j];
+                        array[j] = array[j + halfIndex];
+                        array[j + halfIndex] = temp;
+                    }
+        halfIndex = halfIndex / 2;
+        }
+        
+        
+        
+        
+        /*
+        for (int i=0; i<array.length; i++){
+            int minIndex = i;
+            for(int j=i; j<array.length; j++)
+                if(array[minIndex]>array[j])
+                    minIndex = j;
+            int temp = array[i];
+            array[i] = array[minIndex];
+            array[minIndex] = temp;
+        }*/
+        timeEnd = System.currentTimeMillis();
+    }
+    public long timeSpent() {
+        return timeEnd - timeStart;
     }
 }
