@@ -27,8 +27,7 @@ public class FibonacciInitializer implements Initializer {
      *
      * @param array массив, подлежащий инициализации
      */
-    private int[] array;
-
+    
     public FibonacciInitializer() {
     }
     
@@ -37,24 +36,20 @@ public class FibonacciInitializer implements Initializer {
         /*
          * TODO(Студент): Реализовать метод initialize класса FibonacciInitializer
          */
-        this.array = array;
-        this.array[0] = (int)(Math.random()*2);
-        this.array[1] = 1;
-        for (int i=2; i< array.length; i++)
-            this.array[i] = this.array[i-2] + this.array[i-1];
+        try{
+            array[0] = (int)(Math.random()*2);
+            array[1] = 1;
+            if (array.length > 2)
+                for (int i=2; i< array.length; i++)
+                    array[i] = array[i-2] + array[i-1];
+    
+        }
+        catch(Exception ex)
+        {
+            return;
+        }
     }
     
-    public int sumArray(){
-        int sum = 0;
-        for (int i=0; i< array.length; i++)
-            sum = sum + this.array[i];
 
-        return sum;
-    }
-
-    @Override
-    public String toString() {
-        return Arrays.toString(this.array);
-    }
     
 }

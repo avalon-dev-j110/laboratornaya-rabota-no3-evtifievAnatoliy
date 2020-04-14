@@ -18,7 +18,7 @@ public interface Sort {
      */
     void sort(int[] array);
     
-    default long timeSpent(){
-        return 0;
-    }
+    /*default long timeSpent(){
+    //    return 0;
+    }*/
 }
