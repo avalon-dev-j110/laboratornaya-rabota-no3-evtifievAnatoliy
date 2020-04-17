@@ -36,16 +36,21 @@ public class FibonacciInitializer implements Initializer {
         /*
          * TODO(Студент): Реализовать метод initialize класса FibonacciInitializer
          */
-        if (array.length > 2)
-        {
-            array[0] = (int)(Math.random()*2);
-            array[1] = 1;
-            if (array.length > 2)
+        if (array.length > 0)
+            if (array.length == 1)
+                array[0] = 1;
+            else if (array.length == 2)
+            {    array[0] = 1;
+                array[1] = 1;
+            }
+            else
+            {
+                array[0] = 1;
+                array[1] = 1;
                 for (int i=2; i< array.length; i++)
                     array[i] = array[i-2] + array[i-1];
-        }
+            }
         
-            
         
     }
     
